@@ -22,7 +22,7 @@ namespace Transport_App
         {
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             foreach(DataGridViewRow item in this.dataGridViewConnection.SelectedRows)
@@ -43,13 +43,32 @@ namespace Transport_App
                 row.Cells[3].Value = connection.To.Platform;
                 row.Cells[4].Value = Convert.ToDateTime(connection.From.Departure).ToString("HH:mm");
                 row.Cells[5].Value = Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm");
-                row.Cells[6].Value = connection.Duration.Substring(6, 5);
+
+                row.Cells[6].Value = connection.Duration.Substring(3, 2) + "h " + connection.Duration.Substring(6, 2) + "min";
+
                 dataGridViewConnection.Rows.Add(row);
             }
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void comboBoxDepart_TextUpdate(object sender, EventArgs e)
+        {
+            //only Check if Text lengh > 3 and a odd number (3, 5, 7...)
+            if (comboBoxDepart.Text.Length >= 3 && (comboBoxDepart.Text.Length + 1) % 2 == 0) {
+
+                SwissTransport.Transport transport = new Transport();
+
+                var equalStations = transport.GetStations(comboBoxDepart.Text);
+
+                foreach (var station in equalStations.StationList)
+                {
+                    comboBoxDepart.Items.Add(station.Name);
+                }
+            }
 
         }
     }

@@ -301,6 +301,7 @@
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDepart.TabIndex = 1;
+            this.comboBoxDepart.TextUpdate += new System.EventHandler(this.comboBoxDepart_TextUpdate);
             // 
             // tableLayoutPanel1
             // 
@@ -387,7 +388,7 @@
             this.tabPageM.Location = new System.Drawing.Point(4, 26);
             this.tabPageM.Name = "tabPageM";
             this.tabPageM.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageM.Size = new System.Drawing.Size(678, 284);
+            this.tabPageM.Size = new System.Drawing.Size(800, 352);
             this.tabPageM.TabIndex = 1;
             this.tabPageM.Text = "Map";
             this.tabPageM.UseVisualStyleBackColor = true;
@@ -396,6 +397,7 @@
             // 
             this.Depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Depart.HeaderText = "Depart";
+            this.Depart.MinimumWidth = 30;
             this.Depart.Name = "Depart";
             // 
             // TrackDepart
@@ -403,12 +405,13 @@
             this.TrackDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.TrackDepart.HeaderText = "Track";
             this.TrackDepart.Name = "TrackDepart";
-            this.TrackDepart.Width = 60;
+            this.TrackDepart.Width = 65;
             // 
             // Destination
             // 
             this.Destination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Destination.HeaderText = "Destination";
+            this.Destination.MinimumWidth = 30;
             this.Destination.Name = "Destination";
             // 
             // TrackDestination
@@ -416,28 +419,28 @@
             this.TrackDestination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.TrackDestination.HeaderText = "Track";
             this.TrackDestination.Name = "TrackDestination";
-            this.TrackDestination.Width = 60;
+            this.TrackDestination.Width = 65;
             // 
             // Start
             // 
             this.Start.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Start.HeaderText = "Start";
             this.Start.Name = "Start";
-            this.Start.Width = 54;
+            this.Start.Width = 65;
             // 
             // Arrival
             // 
             this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Arrival.HeaderText = "Arrival";
             this.Arrival.Name = "Arrival";
-            this.Arrival.Width = 61;
+            this.Arrival.Width = 73;
             // 
             // Duration
             // 
             this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Duration.HeaderText = "Duration";
             this.Duration.Name = "Duration";
-            this.Duration.Width = 72;
+            this.Duration.Width = 82;
             // 
             // mainForm
             // 
@@ -446,7 +449,7 @@
             this.ClientSize = new System.Drawing.Size(808, 532);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.mainLayoutPanel);
-            this.MinimumSize = new System.Drawing.Size(400, 300);
+            this.MinimumSize = new System.Drawing.Size(460, 300);
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transport App";
