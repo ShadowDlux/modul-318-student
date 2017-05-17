@@ -40,23 +40,25 @@
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.layoutPanelTopRight = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDestination = new System.Windows.Forms.ComboBox();
             this.lblDestination = new System.Windows.Forms.Label();
             this.layoutPanelTopLeft = new System.Windows.Forms.TableLayoutPanel();
             this.lblDepart = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageC = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewConnection = new System.Windows.Forms.DataGridView();
+            this.tabPageM = new System.Windows.Forms.TabPage();
             this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrackDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrackDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPageM = new System.Windows.Forms.TabPage();
             this.mainLayoutPanel.SuspendLayout();
             this.layoutPanelMidRight.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -67,7 +69,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageC.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnection)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutPanel
@@ -232,7 +234,7 @@
             // 
             this.layoutPanelTopRight.ColumnCount = 1;
             this.layoutPanelTopRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutPanelTopRight.Controls.Add(this.comboBox2, 0, 1);
+            this.layoutPanelTopRight.Controls.Add(this.comboBoxDestination, 0, 1);
             this.layoutPanelTopRight.Controls.Add(this.lblDestination, 0, 0);
             this.layoutPanelTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanelTopRight.Location = new System.Drawing.Point(404, 0);
@@ -244,15 +246,14 @@
             this.layoutPanelTopRight.Size = new System.Drawing.Size(404, 60);
             this.layoutPanelTopRight.TabIndex = 1;
             // 
-            // comboBox2
+            // comboBoxDestination
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 33);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(398, 25);
-            this.comboBox2.TabIndex = 2;
+            this.comboBoxDestination.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDestination.FormattingEnabled = true;
+            this.comboBoxDestination.Location = new System.Drawing.Point(3, 33);
+            this.comboBoxDestination.Name = "comboBoxDestination";
+            this.comboBoxDestination.Size = new System.Drawing.Size(398, 25);
+            this.comboBoxDestination.TabIndex = 2;
             // 
             // lblDestination
             // 
@@ -270,7 +271,7 @@
             this.layoutPanelTopLeft.ColumnCount = 1;
             this.layoutPanelTopLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.layoutPanelTopLeft.Controls.Add(this.lblDepart, 0, 0);
-            this.layoutPanelTopLeft.Controls.Add(this.comboBox1, 0, 1);
+            this.layoutPanelTopLeft.Controls.Add(this.comboBoxDepart, 0, 1);
             this.layoutPanelTopLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanelTopLeft.Location = new System.Drawing.Point(0, 0);
             this.layoutPanelTopLeft.Margin = new System.Windows.Forms.Padding(0);
@@ -292,15 +293,14 @@
             this.lblDepart.TabIndex = 0;
             this.lblDepart.Text = "Depart:";
             // 
-            // comboBox1
+            // comboBoxDepart
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(398, 25);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxDepart.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDepart.FormattingEnabled = true;
+            this.comboBoxDepart.Location = new System.Drawing.Point(3, 33);
+            this.comboBoxDepart.Name = "comboBoxDepart";
+            this.comboBoxDepart.Size = new System.Drawing.Size(398, 25);
+            this.comboBoxDepart.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -321,7 +321,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.search, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(404, 120);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -331,94 +331,56 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 30);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // button1
+            // search
             // 
-            this.button1.Location = new System.Drawing.Point(205, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.search.Location = new System.Drawing.Point(205, 3);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(122, 23);
+            this.search.TabIndex = 0;
+            this.search.Text = "Search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageC);
             this.tabControl1.Controls.Add(this.tabPageM);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(45, 184);
+            this.tabControl1.Location = new System.Drawing.Point(0, 150);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(686, 314);
+            this.tabControl1.Size = new System.Drawing.Size(808, 382);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageC
             // 
-            this.tabPageC.Controls.Add(this.dataGridView1);
+            this.tabPageC.Controls.Add(this.dataGridViewConnection);
             this.tabPageC.Location = new System.Drawing.Point(4, 26);
             this.tabPageC.Name = "tabPageC";
             this.tabPageC.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageC.Size = new System.Drawing.Size(678, 284);
+            this.tabPageC.Size = new System.Drawing.Size(800, 352);
             this.tabPageC.TabIndex = 0;
             this.tabPageC.Text = "Connections";
             this.tabPageC.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewConnection
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewConnection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConnection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Depart,
+            this.TrackDepart,
             this.Destination,
+            this.TrackDestination,
             this.Start,
             this.Arrival,
             this.Duration});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(672, 278);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Depart
-            // 
-            this.Depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Depart.HeaderText = "Depart";
-            this.Depart.Name = "Depart";
-            this.Depart.ReadOnly = true;
-            // 
-            // Destination
-            // 
-            this.Destination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Destination.HeaderText = "Destination";
-            this.Destination.Name = "Destination";
-            this.Destination.ReadOnly = true;
-            // 
-            // Start
-            // 
-            this.Start.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Start.HeaderText = "Start";
-            this.Start.Name = "Start";
-            this.Start.ReadOnly = true;
-            this.Start.Width = 65;
-            // 
-            // Arrival
-            // 
-            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Arrival.HeaderText = "Arrival";
-            this.Arrival.Name = "Arrival";
-            this.Arrival.ReadOnly = true;
-            this.Arrival.Width = 73;
-            // 
-            // Duration
-            // 
-            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Duration.HeaderText = "Duration";
-            this.Duration.Name = "Duration";
-            this.Duration.ReadOnly = true;
-            this.Duration.Width = 82;
+            this.dataGridViewConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewConnection.Enabled = false;
+            this.dataGridViewConnection.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewConnection.Name = "dataGridViewConnection";
+            this.dataGridViewConnection.Size = new System.Drawing.Size(794, 346);
+            this.dataGridViewConnection.TabIndex = 0;
             // 
             // tabPageM
             // 
@@ -429,6 +391,53 @@
             this.tabPageM.TabIndex = 1;
             this.tabPageM.Text = "Map";
             this.tabPageM.UseVisualStyleBackColor = true;
+            // 
+            // Depart
+            // 
+            this.Depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Depart.HeaderText = "Depart";
+            this.Depart.Name = "Depart";
+            // 
+            // TrackDepart
+            // 
+            this.TrackDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrackDepart.HeaderText = "Track";
+            this.TrackDepart.Name = "TrackDepart";
+            this.TrackDepart.Width = 60;
+            // 
+            // Destination
+            // 
+            this.Destination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Destination.HeaderText = "Destination";
+            this.Destination.Name = "Destination";
+            // 
+            // TrackDestination
+            // 
+            this.TrackDestination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrackDestination.HeaderText = "Track";
+            this.TrackDestination.Name = "TrackDestination";
+            this.TrackDestination.Width = 60;
+            // 
+            // Start
+            // 
+            this.Start.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Start.HeaderText = "Start";
+            this.Start.Name = "Start";
+            this.Start.Width = 54;
+            // 
+            // Arrival
+            // 
+            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Arrival.HeaderText = "Arrival";
+            this.Arrival.Name = "Arrival";
+            this.Arrival.Width = 61;
+            // 
+            // Duration
+            // 
+            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Duration.HeaderText = "Duration";
+            this.Duration.Name = "Duration";
+            this.Duration.Width = 72;
             // 
             // mainForm
             // 
@@ -457,7 +466,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageC.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnection)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,8 +483,8 @@
         private System.Windows.Forms.TableLayoutPanel layoutPanelTopLeft;
         private System.Windows.Forms.Label lblDepart;
         private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxDestination;
+        private System.Windows.Forms.ComboBox comboBoxDepart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.RadioButton rBtnYes;
         private System.Windows.Forms.RadioButton rBtnNo;
@@ -484,12 +493,14 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageC;
         private System.Windows.Forms.TabPage tabPageM;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewConnection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button search;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrackDepart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Destination;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrackDestination;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
