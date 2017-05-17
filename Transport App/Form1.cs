@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Transport_App
 {
-    public partial class MainForm : Form
+    public partial class mainForm : Form
     {
-        public MainForm()
+        public mainForm()
         {
             InitializeComponent();
         }
@@ -22,5 +22,9 @@ namespace Transport_App
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
