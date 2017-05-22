@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
 using System.Net;
+using System.Diagnostics;
 
 namespace Transport_App
 {
@@ -24,7 +25,7 @@ namespace Transport_App
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchConncections_Click(object sender, EventArgs e)
         {
             dataGridViewConnection.Rows.Clear();
             dataGridViewConnection.Refresh();
@@ -37,20 +38,23 @@ namespace Transport_App
                 }
 
                 Transport tp = new Transport();
-                Connections connections = tp.GetConnections(comboBoxDepart.Text, comboBoxDestination.Text);
+
+                string date = datePicker.Value.ToString("yyyy-MM-dd");
+                string time = timePicker.Value.ToString("HH:mm");
+
+                Connections connections = tp.GetConnectionsWithTime(comboBoxDepart.Text, comboBoxDestination.Text, date, time);
                 
                 foreach (Connection connection in connections.ConnectionList)
                 {
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dataGridViewConnection);
                     row.Cells[0].Value = connection.From.Station.Name;
-                    row.Cells[1].Value = connection.From.Platform;
-                    row.Cells[2].Value = connection.To.Station.Name;
-                    row.Cells[3].Value = connection.To.Platform;
-                    row.Cells[4].Value = Convert.ToDateTime(connection.From.Departure).ToString("HH:mm");
-                    row.Cells[5].Value = Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm");
-
-                    row.Cells[6].Value = connection.Duration.Substring(3, 2) + "h " + connection.Duration.Substring(6, 2) + "min";
+                    row.Cells[2].Value = connection.From.Platform;
+                    row.Cells[3].Value = connection.To.Station.Name;
+                    row.Cells[4].Value = connection.To.Platform;
+                    row.Cells[5].Value = Convert.ToDateTime(connection.From.Departure).ToString("HH:mm");
+                    row.Cells[6].Value = Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm");
+                    row.Cells[7].Value = connection.Duration.Substring(3, 2) + "h " + connection.Duration.Substring(6, 2) + "min";
 
                     dataGridViewConnection.Rows.Add(row);
                 }
@@ -69,8 +73,8 @@ namespace Transport_App
                         row.CreateCells(dataGridViewConnection);
                         row.Cells[0].Value = comboBoxDepart.Text;
                         row.Cells[1].Value = stationBoard.Name;
-                        row.Cells[2].Value = stationBoard.To;
-                        row.Cells[4].Value = stationBoard.Stop.Departure.ToString("HH:mm:ss");
+                        row.Cells[3].Value = stationBoard.To;
+                        row.Cells[5].Value = stationBoard.Stop.Departure.ToString("HH:mm:ss");
 
                         dataGridViewConnection.Rows.Add(row);
                     }
@@ -125,6 +129,29 @@ namespace Transport_App
             bool state = comboBoxDestination.Visible;
 
             comboBoxDestination.Visible = !state;
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            string tempText = comboBoxDepart.Text;
+
+            comboBoxDepart.Text = comboBoxDestination.Text;
+            comboBoxDestination.Text = tempText;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Transport tp = new Transport();
+            Stations stationVon = tp.GetStations(comboBoxDepart.Text);
+            foreach (Station station in stationVon.StationList)
+            {
+                Coordinate cordinates = station.Coordinate;
+                string xValue = cordinates.XCoordinate.ToString().Replace(",", ".");
+                string yValue = cordinates.YCoordinate.ToString().Replace(",", ".");
+                string url = "https://www.google.ch/maps/?q=loc:" + xValue + "+" + yValue;
+                Process.Start(url);
+            }
         }
     }
 }

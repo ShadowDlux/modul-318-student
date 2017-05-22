@@ -46,12 +46,15 @@
             this.lblDepart = new System.Windows.Forms.Label();
             this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnChange = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSearchConncections = new System.Windows.Forms.Button();
+            this.btnSearchMap = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageC = new System.Windows.Forms.TabPage();
             this.dataGridViewConnection = new System.Windows.Forms.DataGridView();
             this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrackDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrackDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +62,9 @@
             this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageM = new System.Windows.Forms.TabPage();
-            this.btnChange = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.webBrowserMap = new System.Windows.Forms.WebBrowser();
             this.mainLayoutPanel.SuspendLayout();
             this.layoutPanelMidRight.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -67,10 +72,12 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.layoutPanelTopRight.SuspendLayout();
             this.layoutPanelTopLeft.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnection)).BeginInit();
+            this.tabPageM.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainLayoutPanel
@@ -235,7 +242,7 @@
             // layoutPanelTopRight
             // 
             this.layoutPanelTopRight.ColumnCount = 1;
-            this.layoutPanelTopRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.layoutPanelTopRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPanelTopRight.Controls.Add(this.comboBoxDestination, 0, 1);
             this.layoutPanelTopRight.Controls.Add(this.lblDestination, 0, 0);
             this.layoutPanelTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -256,7 +263,7 @@
             this.comboBoxDestination.Name = "comboBoxDestination";
             this.comboBoxDestination.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDestination.TabIndex = 2;
-            this.comboBoxDestination.TextUpdate += new System.EventHandler(this.comboBoxDestination_TextUpdate);
+            this.comboBoxDestination.DropDown += new System.EventHandler(this.comboBoxDestination_TextUpdate);
             // 
             // lblDestination
             // 
@@ -272,7 +279,7 @@
             // layoutPanelTopLeft
             // 
             this.layoutPanelTopLeft.ColumnCount = 1;
-            this.layoutPanelTopLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.layoutPanelTopLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPanelTopLeft.Controls.Add(this.lblDepart, 0, 0);
             this.layoutPanelTopLeft.Controls.Add(this.comboBoxDepart, 0, 1);
             this.layoutPanelTopLeft.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -304,13 +311,14 @@
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDepart.TabIndex = 1;
-            this.comboBoxDepart.TextUpdate += new System.EventHandler(this.comboBoxDepart_TextUpdate);
+            this.comboBoxDepart.DropDown += new System.EventHandler(this.comboBoxDepart_TextUpdate);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btnChange, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 120);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -320,13 +328,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 30);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
+            // btnChange
+            // 
+            this.btnChange.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChange.Location = new System.Drawing.Point(202, 0);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(202, 30);
+            this.btnChange.TabIndex = 7;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.btnChange, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnSearch, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSearchConncections, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSearchMap, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(404, 120);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -336,17 +356,28 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 30);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // btnSearch
+            // btnSearchConncections
             // 
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.Location = new System.Drawing.Point(202, 0);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(202, 30);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearchConncections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearchConncections.Location = new System.Drawing.Point(0, 0);
+            this.btnSearchConncections.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearchConncections.Name = "btnSearchConncections";
+            this.btnSearchConncections.Size = new System.Drawing.Size(202, 30);
+            this.btnSearchConncections.TabIndex = 8;
+            this.btnSearchConncections.Text = "Search Connections";
+            this.btnSearchConncections.UseVisualStyleBackColor = true;
+            this.btnSearchConncections.Click += new System.EventHandler(this.btnSearchConncections_Click);
+            // 
+            // btnSearchMap
+            // 
+            this.btnSearchMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearchMap.Location = new System.Drawing.Point(202, 0);
+            this.btnSearchMap.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearchMap.Name = "btnSearchMap";
+            this.btnSearchMap.Size = new System.Drawing.Size(202, 30);
+            this.btnSearchMap.TabIndex = 9;
+            this.btnSearchMap.Text = "Search Map";
+            this.btnSearchMap.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -378,6 +409,7 @@
             this.dataGridViewConnection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConnection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Depart,
+            this.vehicleName,
             this.TrackDepart,
             this.Destination,
             this.TrackDestination,
@@ -398,6 +430,14 @@
             this.Depart.MinimumWidth = 30;
             this.Depart.Name = "Depart";
             this.Depart.ReadOnly = true;
+            // 
+            // vehicleName
+            // 
+            this.vehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.vehicleName.HeaderText = "Vehicle Name";
+            this.vehicleName.Name = "vehicleName";
+            this.vehicleName.ReadOnly = true;
+            this.vehicleName.Width = 107;
             // 
             // TrackDepart
             // 
@@ -449,6 +489,9 @@
             // 
             // tabPageM
             // 
+            this.tabPageM.Controls.Add(this.button2);
+            this.tabPageM.Controls.Add(this.button1);
+            this.tabPageM.Controls.Add(this.webBrowserMap);
             this.tabPageM.Location = new System.Drawing.Point(4, 26);
             this.tabPageM.Name = "tabPageM";
             this.tabPageM.Padding = new System.Windows.Forms.Padding(3);
@@ -457,16 +500,34 @@
             this.tabPageM.Text = "Map";
             this.tabPageM.UseVisualStyleBackColor = true;
             // 
-            // btnChange
+            // button2
             // 
-            this.btnChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChange.Location = new System.Drawing.Point(0, 0);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(202, 30);
-            this.btnChange.TabIndex = 7;
-            this.btnChange.Text = "Change";
-            this.btnChange.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(527, 40);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(201, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // webBrowserMap
+            // 
+            this.webBrowserMap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.webBrowserMap.Location = new System.Drawing.Point(3, 98);
+            this.webBrowserMap.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserMap.Name = "webBrowserMap";
+            this.webBrowserMap.Size = new System.Drawing.Size(794, 251);
+            this.webBrowserMap.TabIndex = 0;
+            this.webBrowserMap.Url = new System.Uri("https://www.google.ch/maps/dir/", System.UriKind.Absolute);
             // 
             // mainForm
             // 
@@ -492,10 +553,12 @@
             this.layoutPanelTopRight.PerformLayout();
             this.layoutPanelTopLeft.ResumeLayout(false);
             this.layoutPanelTopLeft.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConnection)).EndInit();
+            this.tabPageM.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -525,15 +588,20 @@
         private System.Windows.Forms.DataGridView dataGridViewConnection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSearchConncections;
+        private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrackDepart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Destination;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrackDestination;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
-        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.WebBrowser webBrowserMap;
+        private System.Windows.Forms.Button btnSearchMap;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
