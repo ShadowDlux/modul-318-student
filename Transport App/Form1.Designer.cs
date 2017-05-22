@@ -47,11 +47,10 @@
             this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.search = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageC = new System.Windows.Forms.TabPage();
             this.dataGridViewConnection = new System.Windows.Forms.DataGridView();
-            this.tabPageM = new System.Windows.Forms.TabPage();
             this.Depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrackDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Destination = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +58,8 @@
             this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPageM = new System.Windows.Forms.TabPage();
+            this.btnChange = new System.Windows.Forms.Button();
             this.mainLayoutPanel.SuspendLayout();
             this.layoutPanelMidRight.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -148,6 +149,7 @@
             this.rBtnYes.TabStop = true;
             this.rBtnYes.Text = "Yes";
             this.rBtnYes.UseVisualStyleBackColor = true;
+            this.rBtnYes.CheckedChanged += new System.EventHandler(this.rBtnYes_CheckedChanged);
             // 
             // rBtnNo
             // 
@@ -254,6 +256,7 @@
             this.comboBoxDestination.Name = "comboBoxDestination";
             this.comboBoxDestination.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDestination.TabIndex = 2;
+            this.comboBoxDestination.TextUpdate += new System.EventHandler(this.comboBoxDestination_TextUpdate);
             // 
             // lblDestination
             // 
@@ -322,7 +325,8 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.search, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnChange, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSearch, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(404, 120);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -332,15 +336,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 30);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // search
+            // btnSearch
             // 
-            this.search.Location = new System.Drawing.Point(205, 3);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(122, 23);
-            this.search.TabIndex = 0;
-            this.search.Text = "Search";
-            this.search.UseVisualStyleBackColor = true;
-            this.search.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.Location = new System.Drawing.Point(202, 0);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(202, 30);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
@@ -367,6 +373,8 @@
             // 
             // dataGridViewConnection
             // 
+            this.dataGridViewConnection.AllowUserToAddRows = false;
+            this.dataGridViewConnection.AllowUserToDeleteRows = false;
             this.dataGridViewConnection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConnection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Depart,
@@ -377,11 +385,67 @@
             this.Arrival,
             this.Duration});
             this.dataGridViewConnection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewConnection.Enabled = false;
             this.dataGridViewConnection.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewConnection.Name = "dataGridViewConnection";
+            this.dataGridViewConnection.ReadOnly = true;
             this.dataGridViewConnection.Size = new System.Drawing.Size(794, 346);
             this.dataGridViewConnection.TabIndex = 0;
+            // 
+            // Depart
+            // 
+            this.Depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Depart.HeaderText = "Depart";
+            this.Depart.MinimumWidth = 30;
+            this.Depart.Name = "Depart";
+            this.Depart.ReadOnly = true;
+            // 
+            // TrackDepart
+            // 
+            this.TrackDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrackDepart.HeaderText = "Track";
+            this.TrackDepart.Name = "TrackDepart";
+            this.TrackDepart.ReadOnly = true;
+            this.TrackDepart.Width = 65;
+            // 
+            // Destination
+            // 
+            this.Destination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Destination.HeaderText = "Destination";
+            this.Destination.MinimumWidth = 30;
+            this.Destination.Name = "Destination";
+            this.Destination.ReadOnly = true;
+            // 
+            // TrackDestination
+            // 
+            this.TrackDestination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrackDestination.HeaderText = "Track";
+            this.TrackDestination.Name = "TrackDestination";
+            this.TrackDestination.ReadOnly = true;
+            this.TrackDestination.Width = 65;
+            // 
+            // Start
+            // 
+            this.Start.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Start.HeaderText = "Start";
+            this.Start.Name = "Start";
+            this.Start.ReadOnly = true;
+            this.Start.Width = 65;
+            // 
+            // Arrival
+            // 
+            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Arrival.HeaderText = "Arrival";
+            this.Arrival.Name = "Arrival";
+            this.Arrival.ReadOnly = true;
+            this.Arrival.Width = 73;
+            // 
+            // Duration
+            // 
+            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Duration.HeaderText = "Duration";
+            this.Duration.Name = "Duration";
+            this.Duration.ReadOnly = true;
+            this.Duration.Width = 82;
             // 
             // tabPageM
             // 
@@ -393,54 +457,16 @@
             this.tabPageM.Text = "Map";
             this.tabPageM.UseVisualStyleBackColor = true;
             // 
-            // Depart
+            // btnChange
             // 
-            this.Depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Depart.HeaderText = "Depart";
-            this.Depart.MinimumWidth = 30;
-            this.Depart.Name = "Depart";
-            // 
-            // TrackDepart
-            // 
-            this.TrackDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TrackDepart.HeaderText = "Track";
-            this.TrackDepart.Name = "TrackDepart";
-            this.TrackDepart.Width = 65;
-            // 
-            // Destination
-            // 
-            this.Destination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Destination.HeaderText = "Destination";
-            this.Destination.MinimumWidth = 30;
-            this.Destination.Name = "Destination";
-            // 
-            // TrackDestination
-            // 
-            this.TrackDestination.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TrackDestination.HeaderText = "Track";
-            this.TrackDestination.Name = "TrackDestination";
-            this.TrackDestination.Width = 65;
-            // 
-            // Start
-            // 
-            this.Start.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Start.HeaderText = "Start";
-            this.Start.Name = "Start";
-            this.Start.Width = 65;
-            // 
-            // Arrival
-            // 
-            this.Arrival.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Arrival.HeaderText = "Arrival";
-            this.Arrival.Name = "Arrival";
-            this.Arrival.Width = 73;
-            // 
-            // Duration
-            // 
-            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Duration.HeaderText = "Duration";
-            this.Duration.Name = "Duration";
-            this.Duration.Width = 82;
+            this.btnChange.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChange.Location = new System.Drawing.Point(0, 0);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(202, 30);
+            this.btnChange.TabIndex = 7;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
@@ -499,7 +525,7 @@
         private System.Windows.Forms.DataGridView dataGridViewConnection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depart;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrackDepart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Destination;
@@ -507,6 +533,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.Button btnChange;
     }
 }
 

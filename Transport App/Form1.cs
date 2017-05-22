@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
+using System.Net;
 
 namespace Transport_App
 {
@@ -22,32 +23,60 @@ namespace Transport_App
         {
 
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow item in this.dataGridViewConnection.SelectedRows)
+            dataGridViewConnection.Rows.Clear();
+            dataGridViewConnection.Refresh();
+
+            if (rBtnNo.Checked == true)
             {
-                dataGridViewConnection.Rows.RemoveAt(item.Index);
+                foreach (DataGridViewRow item in this.dataGridViewConnection.SelectedRows)
+                {
+                    dataGridViewConnection.Rows.RemoveAt(item.Index);
+                }
+
+                Transport tp = new Transport();
+                Connections connections = tp.GetConnections(comboBoxDepart.Text, comboBoxDestination.Text);
+                
+                foreach (Connection connection in connections.ConnectionList)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridViewConnection);
+                    row.Cells[0].Value = connection.From.Station.Name;
+                    row.Cells[1].Value = connection.From.Platform;
+                    row.Cells[2].Value = connection.To.Station.Name;
+                    row.Cells[3].Value = connection.To.Platform;
+                    row.Cells[4].Value = Convert.ToDateTime(connection.From.Departure).ToString("HH:mm");
+                    row.Cells[5].Value = Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm");
+
+                    row.Cells[6].Value = connection.Duration.Substring(3, 2) + "h " + connection.Duration.Substring(6, 2) + "min";
+
+                    dataGridViewConnection.Rows.Add(row);
+                }
+            }
+            else
+            {
+                Transport tp = new Transport();
+                Stations stations = tp.GetStations(comboBoxDepart.Text);
+                foreach (Station station in stations.StationList)
+                {
+                    String id = station.Id;
+                    StationBoardRoot stationBoardRoot = tp.GetStationBoard(comboBoxDepart.Text, id);
+                    foreach (StationBoard stationBoard in stationBoardRoot.Entries)
+                    {
+                        DataGridViewRow row = new DataGridViewRow();
+                        row.CreateCells(dataGridViewConnection);
+                        row.Cells[0].Value = comboBoxDepart.Text;
+                        row.Cells[1].Value = stationBoard.Name;
+                        row.Cells[2].Value = stationBoard.To;
+                        row.Cells[4].Value = stationBoard.Stop.Departure.ToString("HH:mm:ss");
+
+                        dataGridViewConnection.Rows.Add(row);
+                    }
+                }
             }
 
-            Transport tp = new Transport();
-            Connections connections = tp.GetConnections(comboBoxDepart.Text, comboBoxDestination.Text);
-            
-            foreach (Connection connection in connections.ConnectionList)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridViewConnection);
-                row.Cells[0].Value = connection.From.Station.Name;
-                row.Cells[1].Value = connection.From.Platform;
-                row.Cells[2].Value = connection.To.Station.Name;
-                row.Cells[3].Value = connection.To.Platform;
-                row.Cells[4].Value = Convert.ToDateTime(connection.From.Departure).ToString("HH:mm");
-                row.Cells[5].Value = Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm");
-
-                row.Cells[6].Value = connection.Duration.Substring(3, 2) + "h " + connection.Duration.Substring(6, 2) + "min";
-
-                dataGridViewConnection.Rows.Add(row);
-            }
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
@@ -57,19 +86,45 @@ namespace Transport_App
 
         private void comboBoxDepart_TextUpdate(object sender, EventArgs e)
         {
-            //only Check if Text lengh > 3 and a odd number (3, 5, 7...)
-            if (comboBoxDepart.Text.Length >= 3 && (comboBoxDepart.Text.Length + 1) % 2 == 0) {
+            autofill(comboBoxDepart);
+        }
 
-                SwissTransport.Transport transport = new Transport();
+        private void comboBoxDestination_TextUpdate(object sender, EventArgs e)
+        {
+            autofill(comboBoxDestination);
+        }
 
-                var equalStations = transport.GetStations(comboBoxDepart.Text);
-
-                foreach (var station in equalStations.StationList)
+        private void autofill(ComboBox cmbBox)
+        {
+            //Only try when cmbBox Text Lengh higher than 3 and an odd number (3, 5, 7...)
+            if (cmbBox.Text.Length >= 3 && (cmbBox.Text.Length + 1) % 2 == 0)
+            {
+                try
                 {
-                    comboBoxDepart.Items.Add(station.Name);
+                    cmbBox.Items.Clear();
+                    
+                    String Text = cmbBox.Text;
+                    Transport tp = new Transport();
+                    Stations stationen = tp.GetStations(Text);
+
+                    //Fill in the list into the cmbBox
+                    List<Station> stationList = tp.GetStations(Text).StationList;
+                    foreach (Station station in stationList)
+                        cmbBox.Items.Add(station.Name);
+                }
+                catch (WebException errorObject)
+                {
+                    MessageBox.Show("You sent to many requests to the server.\nPlease try again!\n\n" + errorObject.Message, "To many requests", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
+        }
+
+        private void rBtnYes_CheckedChanged(object sender, EventArgs e)
+        {
+            bool state = comboBoxDestination.Visible;
+
+            comboBoxDestination.Visible = !state;
         }
     }
 }
