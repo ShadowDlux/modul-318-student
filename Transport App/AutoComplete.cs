@@ -16,6 +16,7 @@ namespace Transport_App
         private List<string> stationNames = new List<string>();
         private System.Windows.Forms.Timer cooldown = new System.Windows.Forms.Timer();
 
+        //declars the cooldown of the search interval
         public AutoComplete(ComboBox cmbBox)
         {
             this.cmbBox = cmbBox;
@@ -23,6 +24,7 @@ namespace Transport_App
             cooldown.Tick += new EventHandler(EndCooldown);
         }
 
+        //lists all the suggestions into the combobox
         public void UpdateSuggestions(bool isDoneWithCooldown = false)
         {
             if (!isDoneWithCooldown)
