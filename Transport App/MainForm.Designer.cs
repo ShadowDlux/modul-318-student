@@ -47,7 +47,7 @@
             this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearchConncections = new System.Windows.Forms.Button();
-            this.btnChange = new System.Windows.Forms.Button();
+            this.btnSwitch = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearchMapDepart = new System.Windows.Forms.Button();
             this.btnSearchMapDestination = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.mainLayoutPanel.Size = new System.Drawing.Size(808, 150);
+            this.mainLayoutPanel.Size = new System.Drawing.Size(807, 150);
             this.mainLayoutPanel.TabIndex = 0;
             // 
             // layoutPanelMidRight
@@ -100,7 +100,7 @@
             this.layoutPanelMidRight.Controls.Add(this.lblDisableDestination, 0, 0);
             this.layoutPanelMidRight.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.layoutPanelMidRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutPanelMidRight.Location = new System.Drawing.Point(404, 60);
+            this.layoutPanelMidRight.Location = new System.Drawing.Point(403, 60);
             this.layoutPanelMidRight.Margin = new System.Windows.Forms.Padding(0);
             this.layoutPanelMidRight.Name = "layoutPanelMidRight";
             this.layoutPanelMidRight.RowCount = 2;
@@ -177,7 +177,7 @@
             this.layoutPanelMidLeft.RowCount = 2;
             this.layoutPanelMidLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPanelMidLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.layoutPanelMidLeft.Size = new System.Drawing.Size(404, 60);
+            this.layoutPanelMidLeft.Size = new System.Drawing.Size(403, 60);
             this.layoutPanelMidLeft.TabIndex = 2;
             // 
             // lblDateTime
@@ -187,7 +187,7 @@
             this.lblDateTime.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.Location = new System.Drawing.Point(3, 0);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(398, 30);
+            this.lblDateTime.Size = new System.Drawing.Size(397, 30);
             this.lblDateTime.TabIndex = 1;
             this.lblDateTime.Text = "Date / Time:";
             // 
@@ -204,7 +204,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(404, 30);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(403, 30);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // datePicker
@@ -216,7 +216,7 @@
             this.datePicker.Location = new System.Drawing.Point(3, 3);
             this.datePicker.Name = "datePicker";
             this.datePicker.ShowUpDown = true;
-            this.datePicker.Size = new System.Drawing.Size(196, 24);
+            this.datePicker.Size = new System.Drawing.Size(195, 24);
             this.datePicker.TabIndex = 3;
             // 
             // timePicker
@@ -225,7 +225,7 @@
             this.timePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timePicker.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timePicker.Location = new System.Drawing.Point(205, 3);
+            this.timePicker.Location = new System.Drawing.Point(204, 3);
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(196, 24);
@@ -238,7 +238,7 @@
             this.layoutPanelTopRight.Controls.Add(this.comboBoxDestination, 0, 1);
             this.layoutPanelTopRight.Controls.Add(this.lblDestination, 0, 0);
             this.layoutPanelTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutPanelTopRight.Location = new System.Drawing.Point(404, 0);
+            this.layoutPanelTopRight.Location = new System.Drawing.Point(403, 0);
             this.layoutPanelTopRight.Margin = new System.Windows.Forms.Padding(0);
             this.layoutPanelTopRight.Name = "layoutPanelTopRight";
             this.layoutPanelTopRight.RowCount = 2;
@@ -282,7 +282,7 @@
             this.layoutPanelTopLeft.RowCount = 2;
             this.layoutPanelTopLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPanelTopLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.layoutPanelTopLeft.Size = new System.Drawing.Size(404, 60);
+            this.layoutPanelTopLeft.Size = new System.Drawing.Size(403, 60);
             this.layoutPanelTopLeft.TabIndex = 0;
             // 
             // lblDepart
@@ -292,7 +292,7 @@
             this.lblDepart.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepart.Location = new System.Drawing.Point(3, 0);
             this.lblDepart.Name = "lblDepart";
-            this.lblDepart.Size = new System.Drawing.Size(398, 30);
+            this.lblDepart.Size = new System.Drawing.Size(397, 30);
             this.lblDepart.TabIndex = 0;
             this.lblDepart.Text = "Depart:";
             // 
@@ -303,7 +303,7 @@
             this.comboBoxDepart.FormattingEnabled = true;
             this.comboBoxDepart.Location = new System.Drawing.Point(3, 33);
             this.comboBoxDepart.Name = "comboBoxDepart";
-            this.comboBoxDepart.Size = new System.Drawing.Size(398, 25);
+            this.comboBoxDepart.Size = new System.Drawing.Size(397, 25);
             this.comboBoxDepart.TabIndex = 1;
             this.comboBoxDepart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxDepart_KeyDown);
             // 
@@ -313,20 +313,20 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnSearchConncections, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnChange, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSwitch, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 120);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 30);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 30);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // btnSearchConncections
             // 
             this.btnSearchConncections.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearchConncections.Location = new System.Drawing.Point(202, 0);
+            this.btnSearchConncections.Location = new System.Drawing.Point(201, 0);
             this.btnSearchConncections.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchConncections.Name = "btnSearchConncections";
             this.btnSearchConncections.Size = new System.Drawing.Size(202, 30);
@@ -335,17 +335,17 @@
             this.btnSearchConncections.UseVisualStyleBackColor = true;
             this.btnSearchConncections.Click += new System.EventHandler(this.btnSearchConncections_Click);
             // 
-            // btnChange
+            // btnSwitch
             // 
-            this.btnChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChange.Location = new System.Drawing.Point(0, 0);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(202, 30);
-            this.btnChange.TabIndex = 7;
-            this.btnChange.Text = "Change";
-            this.btnChange.UseVisualStyleBackColor = true;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            this.btnSwitch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSwitch.Location = new System.Drawing.Point(0, 0);
+            this.btnSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.Size = new System.Drawing.Size(201, 30);
+            this.btnSwitch.TabIndex = 7;
+            this.btnSwitch.Text = "Switch Depart with Destination";
+            this.btnSwitch.UseVisualStyleBackColor = true;
+            this.btnSwitch.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -355,7 +355,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSearchMapDepart, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSearchMapDestination, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(404, 120);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(403, 120);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -370,9 +370,10 @@
             this.btnSearchMapDepart.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchMapDepart.Name = "btnSearchMapDepart";
             this.btnSearchMapDepart.Size = new System.Drawing.Size(202, 30);
-            this.btnSearchMapDepart.TabIndex = 10;
+            this.btnSearchMapDepart.TabIndex = 9;
             this.btnSearchMapDepart.Text = "Search Depart";
             this.btnSearchMapDepart.UseVisualStyleBackColor = true;
+            this.btnSearchMapDepart.Click += new System.EventHandler(this.btnSearchMapDepart_Click);
             // 
             // btnSearchMapDestination
             // 
@@ -381,9 +382,10 @@
             this.btnSearchMapDestination.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearchMapDestination.Name = "btnSearchMapDestination";
             this.btnSearchMapDestination.Size = new System.Drawing.Size(202, 30);
-            this.btnSearchMapDestination.TabIndex = 9;
+            this.btnSearchMapDestination.TabIndex = 10;
             this.btnSearchMapDestination.Text = "Search Destination";
             this.btnSearchMapDestination.UseVisualStyleBackColor = true;
+            this.btnSearchMapDestination.Click += new System.EventHandler(this.btnSearchMapDestination_Click);
             // 
             // dataGridViewConnection
             // 
@@ -403,8 +405,9 @@
             this.dataGridViewConnection.Location = new System.Drawing.Point(0, 150);
             this.dataGridViewConnection.Name = "dataGridViewConnection";
             this.dataGridViewConnection.ReadOnly = true;
-            this.dataGridViewConnection.Size = new System.Drawing.Size(808, 382);
+            this.dataGridViewConnection.Size = new System.Drawing.Size(807, 336);
             this.dataGridViewConnection.TabIndex = 0;
+            this.dataGridViewConnection.TabStop = false;
             // 
             // Depart
             // 
@@ -475,10 +478,10 @@
             this.AcceptButton = this.btnSearchConncections;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 532);
+            this.ClientSize = new System.Drawing.Size(807, 486);
             this.Controls.Add(this.dataGridViewConnection);
             this.Controls.Add(this.mainLayoutPanel);
-            this.MinimumSize = new System.Drawing.Size(460, 300);
+            this.MinimumSize = new System.Drawing.Size(660, 320);
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transport App";
@@ -524,7 +527,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnSearchConncections;
-        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depart;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrackDepart;

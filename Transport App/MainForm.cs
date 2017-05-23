@@ -83,13 +83,14 @@ namespace Transport_App
 
         }
 
-        // Event-Handlers für Haltestellensuche
+        //Autofill Eventhandler
         private void comboBoxDepart_KeyDown(object sender, KeyEventArgs e)
         {
             if (!isKeyValid(e)) return;
             AutoCompleteDepart.UpdateSuggestions();
         }
 
+        //Autofill Eventhandler
         private void comboBoxDestination_KeyDown(object sender, KeyEventArgs e)
         {
             if (!isKeyValid(e)) return;
@@ -98,20 +99,15 @@ namespace Transport_App
 
         private bool isKeyValid(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up ||
-                e.KeyCode == Keys.Down ||
-                e.KeyCode == Keys.Left ||
-                e.KeyCode == Keys.Right ||
-                e.KeyCode == Keys.Tab) return false;
-            return true;
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right || e.KeyCode == Keys.Tab)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
-
-
-
-
-
-
-
 
         private void rBtnYes_CheckedChanged(object sender, EventArgs e)
         {
@@ -128,12 +124,21 @@ namespace Transport_App
             comboBoxDestination.Text = tempText;
         }
 
+        private void btnSearchMapDepart_Click(object sender, EventArgs e)
+        {
+            searchOnGoogle(comboBoxDepart);
+        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchMapDestination_Click(object sender, EventArgs e)
+        {
+            searchOnGoogle(comboBoxDestination);
+        }
+
+        private void searchOnGoogle(ComboBox cbBox)
         {
             Transport tp = new Transport();
-            Stations stationVon = tp.GetStations(comboBoxDepart.Text);
-            foreach (Station station in stationVon.StationList)
+            Stations stationDepart = tp.GetStations(cbBox.Text);
+            foreach (Station station in stationDepart.StationList)
             {
                 Coordinate cordinates = station.Coordinate;
                 string xValue = cordinates.XCoordinate.ToString().Replace(",", ".");
