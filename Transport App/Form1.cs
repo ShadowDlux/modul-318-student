@@ -15,14 +15,14 @@ namespace Transport_App
 {
     public partial class mainForm : Form
     {
+        private AutoComplete AutoCompleteDepart;
+        private AutoComplete AutoCompleteDestination;
+
         public mainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
+            AutoCompleteDepart = new AutoComplete(comboBoxDepart);
+            AutoCompleteDestination = new AutoComplete(comboBoxDestination);
         }
 
         private void btnSearchConncections_Click(object sender, EventArgs e)
@@ -83,46 +83,35 @@ namespace Transport_App
 
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        // Event-Handlers für Haltestellensuche
+        private void comboBoxDepart_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (!isKeyValid(e)) return;
+            AutoCompleteDepart.UpdateSuggestions();
         }
 
-        private void comboBoxDepart_TextUpdate(object sender, EventArgs e)
+        private void comboBoxDestination_KeyDown(object sender, KeyEventArgs e)
         {
-            autofill(comboBoxDepart);
+            if (!isKeyValid(e)) return;
+            AutoCompleteDestination.UpdateSuggestions();
         }
 
-        private void comboBoxDestination_TextUpdate(object sender, EventArgs e)
+        private bool isKeyValid(KeyEventArgs e)
         {
-            autofill(comboBoxDestination);
+            if (e.KeyCode == Keys.Up ||
+                e.KeyCode == Keys.Down ||
+                e.KeyCode == Keys.Left ||
+                e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Tab) return false;
+            return true;
         }
 
-        private void autofill(ComboBox cmbBox)
-        {
-            //Only try when cmbBox Text Lengh higher than 3 and an odd number (3, 5, 7...)
-            if (cmbBox.Text.Length >= 3 && (cmbBox.Text.Length + 1) % 2 == 0)
-            {
-                try
-                {
-                    cmbBox.Items.Clear();
-                    
-                    String Text = cmbBox.Text;
-                    Transport tp = new Transport();
-                    Stations stationen = tp.GetStations(Text);
 
-                    //Fill in the list into the cmbBox
-                    List<Station> stationList = tp.GetStations(Text).StationList;
-                    foreach (Station station in stationList)
-                        cmbBox.Items.Add(station.Name);
-                }
-                catch (WebException errorObject)
-                {
-                    MessageBox.Show("You sent to many requests to the server.\nPlease try again!\n\n" + errorObject.Message, "To many requests", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
 
-        }
+
+
+
+
 
         private void rBtnYes_CheckedChanged(object sender, EventArgs e)
         {

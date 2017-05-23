@@ -263,7 +263,7 @@
             this.comboBoxDestination.Name = "comboBoxDestination";
             this.comboBoxDestination.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDestination.TabIndex = 2;
-            this.comboBoxDestination.DropDown += new System.EventHandler(this.comboBoxDestination_TextUpdate);
+            this.comboBoxDestination.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxDestination_KeyDown);
             // 
             // lblDestination
             // 
@@ -311,7 +311,7 @@
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(398, 25);
             this.comboBoxDepart.TabIndex = 1;
-            this.comboBoxDepart.DropDown += new System.EventHandler(this.comboBoxDepart_TextUpdate);
+            this.comboBoxDepart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxDepart_KeyDown);
             // 
             // tableLayoutPanel1
             // 
@@ -540,7 +540,6 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transport App";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainLayoutPanel.ResumeLayout(false);
             this.layoutPanelMidRight.ResumeLayout(false);
             this.layoutPanelMidRight.PerformLayout();
